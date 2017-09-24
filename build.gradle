@@ -1,5 +1,5 @@
 plugins{
-    id 'org.ajoberstar:grgit' version '1.9.3'
+    id "org.ajoberstar.grgit" version "2.0.1"
 }
 
 repositories {
@@ -9,7 +9,8 @@ repositories {
 }
 
 task subtreePush(type:Exec){
-    commandLine 'git' 'subtree' 'push' '--prefix' 'sub-project' 'git@github.com:baptistemesta/subtree-child.git' 'master'
+    commandLine 'git', 'subtree', 'push', '--prefix', 'sub-project', 'git@github.com:baptistemesta/subtree-child.git',
+    'master'
 }
 
 task subtreePull{
