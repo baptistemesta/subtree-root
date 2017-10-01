@@ -4,7 +4,7 @@ destinationUrl = "git@github.com:baptistemesta/subtree-child.git"
 
 core.workflow(
     name = "default",
-    mode = "SQUASH",
+    mode = "ITERATIVE",
     origin = git.origin(
         url = sourceUrl,
         ref = "master",
