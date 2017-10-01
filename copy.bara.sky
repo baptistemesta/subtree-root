@@ -1,0 +1,25 @@
+# Update these references to your orginzations repos
+sourceUrl = "git@github.com:baptistemesta/subtree-root.git"
+destinationUrl = "git@github.com:baptistemesta/subtree-child.git"
+
+core.workflow(
+    name = "default",
+    origin = git.origin(
+        url = sourceUrl,
+        ref = "master",
+    ),
+    destination = git.destination(
+        url = destinationUrl,
+        fetch = "master",
+        push = "master",
+    ),
+    # Change path to the folder you want to publish publicly
+    origin_files = glob(["sub-project/**"]),
+
+    authoring = authoring.pass_thru("Default email <default@default.com>"),
+
+    # Change the path here to the folder you want to publish publicly
+    transformations = [
+	    core.move("sub-project/", ""),
+	],
+)
